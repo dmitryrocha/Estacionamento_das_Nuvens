@@ -43,4 +43,23 @@ public class ParkingController {
         var parking = service.create(parkingCreate);
         return ResponseEntity.status(HttpStatus.CREATED).body(mapper.toParkingDTO(parking));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ParkingDTO> update(@PathVariable String id, @RequestBody ParkingCreateDTO dto) {
+        var parkingCreate = mapper.toParkingCreate(dto);
+        var parking = service.update(id, parkingCreate);
+        return ResponseEntity.status(HttpStatus.OK).body(mapper.toParkingDTO(parking));
+    }
+
+    @PutMapping("exit/{id}")
+    public ResponseEntity<ParkingDTO> exit(@PathVariable String id) {
+        //TODO - recuperar o carro, atualizar data de saída, calcular o valor
+        return null;
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable String id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 }
