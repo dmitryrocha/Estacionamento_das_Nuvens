@@ -53,8 +53,8 @@ public class ParkingController {
 
     @PutMapping("exit/{id}")
     public ResponseEntity<ParkingDTO> exit(@PathVariable String id) {
-        //TODO - recuperar o carro, atualizar data de saída, calcular o valor
-        return null;
+        Parking parking = service.exit(id);
+        return ResponseEntity.ok(mapper.toParkingDTO(parking));
     }
 
     @DeleteMapping("/{id}")
