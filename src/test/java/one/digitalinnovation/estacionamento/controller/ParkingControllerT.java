@@ -38,7 +38,7 @@ class ParkingControllerT {
                 .get("/parking")
                 .then()
                 .statusCode(200)
-                .body("license[0]", Matchers.equalTo("PLE-1212"));
+                .body("license[0]", Matchers.equalTo("PLE-1111"));
     }
 
     @Test
