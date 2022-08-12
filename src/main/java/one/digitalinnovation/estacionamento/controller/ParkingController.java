@@ -1,5 +1,6 @@
 package one.digitalinnovation.estacionamento.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import one.digitalinnovation.estacionamento.dto.ParkingCreateDTO;
 import one.digitalinnovation.estacionamento.dto.ParkingDTO;
 import one.digitalinnovation.estacionamento.mapper.ParkingMapper;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/parking")
+@SecurityRequirement(name = "javainuse")
 public class ParkingController {
 
     private final ParkingService service;

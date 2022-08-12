@@ -26,6 +26,8 @@ class ParkingControllerT {
     @Test
     void whenFindAllThenExtractBody() {
         RestAssured.given()
+                .auth()
+                .basic("user","aspas@1234")
                 .when()
                 .get("/parking")
                 .then()
@@ -35,6 +37,8 @@ class ParkingControllerT {
     void whenFindAllThenCheckResult() {
         RestAssured.given()
                 .when()
+                .auth()
+                .basic("user","aspas@1234")
                 .get("/parking")
                 .then()
                 .statusCode(200)
